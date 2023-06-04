@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>TODO-LIST</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            background-color: azure;
+        }
+        .task-container{
+            background-color: rgb(115, 107, 107);
+            text-align: center;
+            /* display: table; */
+            margin-top: 10px;
+            padding: 30px 40px;
+            /* max-width:fit-content; */
+            color: white;
+            /* clear: both; */
+        }
+        .task-container::after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+        h1{
+            text-align: center;
+            /* text-decoration: underline; */
+            margin-top: 10%;
+            border-bottom: 1px solid;
+            position:relative;
+            /* margin: 10px; */
+        }
+        input {
+  margin: 0;
+  border: 1px solid;
+  border-radius: 25px;
+  width: 70%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+/* Style the "Add" button */
+#add-button {
+  padding: 10px;
+  width: 25%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid;
+  border-radius: 25px;
+}
+
+
+#add-button:hover {
+  background-color: #bbb;
+}
+ul {
+    width: 500px;
+    margin-left: 50px;
+    padding: 10px;
+    border: 5px solid gray;
+    max-width: 500px;
+    position: sticky;
+    margin: 0;
+    /* -webkit-box-align: center; */
+    list-style-type:decimal;
+    list-style-position: inside;
+    padding: 0;
+    margin-top: 20px;
+    text-align:center;
+    
+}
+#task-list{
+    -moz-box-align: center;
+    margin: 50px;
+    margin-left: 350px;
+    /* display: flex; */
+
+}
+li {
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+li span {
+  margin-right: 10px;
+}
+
+li button {
+    text-align: end;
+  padding: 2px 50px;
+  padding-top: 2px;
+  font-size: 14px;
+  background-color: #ccc;
+  border: none;
+  cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <h1>TODO LIST</h1>
+    <div class="task-container">
+    
+    <input type="text" id="task-input" placeholder="Things to do..">
+    <!-- <span onclick="newElement()" class="addBtn">Add</span> -->
+    <button id="add-button">Add</button>
+</div>
+<ul id="task-list">
+  </ul>
+  <script>
+    // Get DOM elements
+const taskInput = document.getElementById("task-input");
+const addButton = document.getElementById("add-button");
+const taskList = document.getElementById("task-list");
+
+// Function to add a task
+function addTask() {
+  const task = taskInput.value;
+  if (task) {
+    const listItem = document.createElement("li");
+    const taskText = document.createElement("span");
+    taskText.innerText = task;
+    const deleteButton = document.createElement("button");
+    deleteButton.innerText = "Delete";
+    deleteButton.addEventListener("click", function() {
+      listItem.remove();
+    });
+    listItem.appendChild(taskText);
+    listItem.appendChild(deleteButton);
+    taskList.appendChild(listItem);
+    taskInput.value = "";
+  }
+}
+
+// Add event listener to the add button
+addButton.addEventListener("click", addTask);
+
+</script>
+</body>
+</html>
