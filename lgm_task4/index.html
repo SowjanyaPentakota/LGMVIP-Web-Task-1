@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            background-color: rgb(205, 160, 247);
+        }
+        body {
+  
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: 50px;
+  
+}
+        h1{
+            margin:70px;
+            text-align: center;
+            text-decoration: underline;
+            color: rgb(95, 0, 139);
+            font-size:75px;
+            font-family:cursive;
+            }
+        .btn-group{
+            text-align: center;
+            margin-left: 500px;
+            width: 223px;
+  border: 1px solid black;
+  background-color: rgb(202, 86, 202);
+  margin-bottom: 0;
+        }
+        .btn-group button {
+  background-color: rgb(202, 86, 202); 
+  border: 1px solid black;
+  color: white;
+  padding: 10px 24px; 
+  cursor: pointer; 
+  float: left; 
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none;
+}
+
+
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+.btn-group button:hover {
+  background-color: rgb(112, 6, 183);
+}
+#btn{
+    background-color: red; 
+  border: 1px solid black;
+  color: white; 
+  padding: 10px 24px; 
+  cursor: pointer; 
+  float: left;
+}
+table{
+    border: 2px;
+    margin-left: 500px;
+}
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div class="cal">
+    <table>
+        <tr>
+            <td colspan="3"> <input class="display-box" type="text" id="result" disabled /> </td>
+            <td> <input type="button" value="C" onclick="clearScreen()" id="btn" /> </td>
+        </tr>
+    </table>  
+    <div class="btn-group">
+        <button onclick="display('7')">7</button>
+        <button onclick="display('8')">8</button>
+        <button onclick="display('9')">9</button>
+        <button onclick="display('/')">/</button>
+    </div>
+    <div class="btn-group">
+        <button onclick="display('4')">4</button>
+        <button onclick="display('5')">5</button>
+        <button onclick="display('6')">6</button>
+        <button onclick="display('*')">*</button>
+      </div>
+      <div class="btn-group">
+        <button onclick="display('1')">1</button>
+        <button onclick="display('2')">2</button>
+        <button onclick="display('3')">3</button>
+        <button onclick="display('-')">-</button>
+      </div></body>
+      <div class="btn-group">
+        <button onclick="display('.')">.</button>
+        <button onclick="display('0')">0</button>
+        <button onclick="calculate()" id="btn">=</button>
+        <button onclick="display('+')">+</button>
+      </div>
+    </div>>
+    <script>
+        function clearScreen() {
+    document.getElementById("result").value = "";
+}
+ 
+
+function display(value) {
+    document.getElementById("result").value += value;
+}
+ 
+
+function calculate() {
+    var p = document.getElementById("result").value;
+    var q = eval(p);
+    document.getElementById("result").value = q;
+}
+    </script>
+</body>
+</html>
